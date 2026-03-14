@@ -41,7 +41,7 @@ export function SectionHeading({
     >
       <h2
         className={cn(
-          'text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight',
+          'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight',
           'text-white',
           titleClassName
         )}
@@ -52,7 +52,7 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            'mt-3 text-base md:text-lg text-[#7BC8FF] max-w-2xl',
+            'mt-2 sm:mt-3 text-xs sm:text-sm md:text-base lg:text-lg text-[#7BC8FF] max-w-2xl',
             align === 'center' && 'mx-auto',
             subtitleClassName
           )}

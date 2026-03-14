@@ -25,12 +25,12 @@ const technologies = [
 
 function TechLogo({ name, color }: { name: string; color: string }) {
   return (
-    <div className="flex items-center gap-3 px-6 py-3 mx-4 rounded-lg dark:bg-[#0A1628]/50 light:bg-white dark:border dark:border-[#1A3A5C]/30 light:border light:border-[#E2E8F0] dark:hover:border-[#00D4FF]/30 light:hover:border-[#0084FF]/30 transition-colors">
+    <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-2 sm:py-3 mx-2 sm:mx-4 rounded-lg dark:bg-[#0A1628]/50 light:bg-white dark:border dark:border-[#1A3A5C]/30 light:border light:border-[#E2E8F0] dark:hover:border-[#00D4FF]/30 light:hover:border-[#0084FF]/30 transition-colors">
       <div 
-        className="w-3 h-3 rounded-full"
+        className="w-2 sm:w-3 h-2 sm:h-3 rounded-full"
         style={{ backgroundColor: color, boxShadow: `0 0 10px ${color}40` }}
       />
-      <span className="font-mono text-sm dark:text-[#B8D4E8] light:text-[#475569] whitespace-nowrap">{name}</span>
+      <span className="font-mono text-xs sm:text-sm dark:text-[#B8D4E8] light:text-[#475569] whitespace-nowrap">{name}</span>
     </div>
   )
 }
@@ -40,20 +40,20 @@ export function TechStack() {
   const doubledTech = [...technologies, ...technologies]
 
   return (
-    <section className="relative py-12 md:py-16 overflow-hidden dark:bg-[#020B18] light:bg-[#F8FAFC]">
+    <section className="relative py-10 sm:py-12 md:py-16 overflow-hidden dark:bg-[#020B18] light:bg-[#F8FAFC]">
       {/* Background */}
       <div className="absolute inset-0 dark:bg-[#020B18] light:bg-[#F8FAFC]" />
       
       {/* Gradient overlays for fade effect */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 dark:bg-gradient-to-r dark:from-[#020B18] light:bg-gradient-to-r light:from-[#F8FAFC] to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 dark:bg-gradient-to-l dark:from-[#020B18] light:bg-gradient-to-l light:from-[#F8FAFC] to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 dark:bg-gradient-to-r dark:from-[#020B18] light:bg-gradient-to-r light:from-[#F8FAFC] to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 dark:bg-gradient-to-l dark:from-[#020B18] light:bg-gradient-to-l light:from-[#F8FAFC] to-transparent z-10" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-sm font-mono uppercase tracking-widest text-[#00D4FF] mb-4"
+          className="text-center text-xs sm:text-sm font-mono uppercase tracking-widest text-[#00D4FF] mb-2 sm:mb-4"
         >
           Our Tech Stack
         </motion.p>
@@ -62,7 +62,7 @@ export function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center text-2xl md:text-3xl font-bold text-white"
+          className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-white"
           style={{ fontFamily: 'var(--font-space), Space Grotesk, sans-serif' }}
         >
           Built With Industry-Leading Technologies

@@ -45,12 +45,12 @@ export function Hero() {
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.7, delay: 0.4 }}
-  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] sm:leading-[1.0] tracking-tight"
+  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight sm:leading-[1.1] md:leading-[1.0] tracking-tight"
   style={{ fontFamily: "var(--font-space), Space Grotesk, sans-serif" }}
 >
   <span className="text-white">We Build </span>
 
-  <br />
+  <br className="hidden sm:block" />
 
   <span
     className="text-primary dark:text-[#00D4FF] light:text-[#0084FF]"
@@ -67,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-7 text-base sm:text-lg text-[#7BA8C4] max-w-lg mx-auto leading-relaxed"
+          className="mt-4 sm:mt-7 text-sm sm:text-base md:text-lg text-[#7BA8C4] max-w-lg mx-auto leading-relaxed"
         >
           Crafting high-performance digital experiences that convert visitors into loyal customers.
         </motion.p>
@@ -77,7 +77,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.85 }}
-          className="mt-10 flex justify-center gap-10 sm:gap-14"
+          className="mt-8 sm:mt-10 flex justify-center gap-6 sm:gap-10 md:gap-14 flex-wrap"
         >
           {[
             { val: '50+', label: 'Projects Shipped' },
@@ -86,12 +86,12 @@ export function Hero() {
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div
-                className="text-2xl sm:text-3xl font-bold text-white"
+                className="text-xl sm:text-2xl md:text-3xl font-bold text-white"
                 style={{ fontFamily: 'var(--font-space), Space Grotesk, sans-serif' }}
               >
                 {stat.val}
               </div>
-              <div className="mt-0.5 text-xs text-[#4A7A96] tracking-wide">{stat.label}</div>
+              <div className="mt-0.5 text-xs sm:text-sm text-[#4A7A96] tracking-wide">{stat.label}</div>
             </div>
           ))}
         </motion.div>

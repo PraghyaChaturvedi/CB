@@ -184,7 +184,7 @@ export function Contact() {
   const errorClasses = 'border-red-500/50 focus:border-red-500 focus:ring-red-500'
 
   return (
-    <section id="contact" className="relative py-16 md:py-24 dark:bg-[#020B18] light:bg-[#F8FAFC]">
+    <section id="contact" className="relative py-12 sm:py-16 md:py-24 dark:bg-[#020B18] light:bg-[#F8FAFC]">
       <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-[#020B18] dark:via-[#0A1628] dark:to-[#020B18] light:bg-gradient-to-b light:from-[#F8FAFC] light:via-white light:to-[#F8FAFC]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,7 +193,7 @@ export function Contact() {
           subtitle="Let's discuss your project and bring your vision to life."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -225,8 +225,8 @@ export function Contact() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 dark:bg-transparent light:bg-transparent" noValidate>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 dark:bg-transparent light:bg-transparent" noValidate>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
                     <label htmlFor="name" className="sr-only">Your Name</label>
                     <input
@@ -236,10 +236,10 @@ export function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Your Name *"
-                      className={`${inputClasses} ${errors.name ? errorClasses : ''}`}
+                      className={`${inputClasses} text-sm sm:text-base ${errors.name ? errorClasses : ''}`}
                       aria-invalid={!!errors.name}
                     />
-                    {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
+                    {errors.name && <p className="mt-1 text-xs sm:text-sm text-red-400">{errors.name}</p>}
                   </div>
                   <div>
                     <label htmlFor="email" className="sr-only">Email Address</label>
@@ -250,10 +250,10 @@ export function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Email Address *"
-                      className={`${inputClasses} ${errors.email ? errorClasses : ''}`}
+                      className={`${inputClasses} text-sm sm:text-base ${errors.email ? errorClasses : ''}`}
                       aria-invalid={!!errors.email}
                     />
-                    {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
+                    {errors.email && <p className="mt-1 text-xs sm:text-sm text-red-400">{errors.email}</p>}
                   </div>
                 </div>
 
@@ -266,20 +266,20 @@ export function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Phone Number"
-                    className={`${inputClasses} ${errors.phone ? errorClasses : ''}`}
+                    className={`${inputClasses} text-sm sm:text-base ${errors.phone ? errorClasses : ''}`}
                     aria-invalid={!!errors.phone}
                   />
-                  {errors.phone && <p className="mt-1 text-sm text-red-400">{errors.phone}</p>}
+                  {errors.phone && <p className="mt-1 text-xs sm:text-sm text-red-400">{errors.phone}</p>}
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <label htmlFor="projectType" className="sr-only">Project Type</label>
                   <select
                     id="projectType"
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className={inputClasses}
+                    className={`${inputClasses} text-sm sm:text-base`}
                   >
                     <option value="">Select Project Type</option>
                     {projectTypes.map((type) => (
@@ -292,7 +292,7 @@ export function Contact() {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className={inputClasses}
+                    className={`${inputClasses} text-sm sm:text-base`}
                   >
                     <option value="">Select Budget Range</option>
                     {budgetRanges.map((range) => (
@@ -310,21 +310,21 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Tell us about your project *"
                     rows={5}
-                    className={`${inputClasses} resize-none ${errors.message ? errorClasses : ''}`}
+                    className={`${inputClasses} text-sm sm:text-base resize-none ${errors.message ? errorClasses : ''}`}
                     aria-invalid={!!errors.message}
                   />
-                  {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
+                  {errors.message && <p className="mt-1 text-xs sm:text-sm text-red-400">{errors.message}</p>}
                 </div>
 
                 {submitMessage && (
-                  <p className={`text-sm ${hasErrors ? 'text-red-400' : 'text-[#7BC8FF]'}`}>{submitMessage}</p>
+                  <p className={`text-xs sm:text-sm ${hasErrors ? 'text-red-400' : 'text-[#7BC8FF]'}`}>{submitMessage}</p>
                 )}
 
                 <GlowButton
                   type="submit"
-                  className="w-full"
+                  className="w-full text-sm sm:text-base"
                   disabled={isSubmitting}
-                  icon={<Send size={18} />}
+                  icon={<Send size={16} className="sm:w-[18px] sm:h-[18px]" />}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </GlowButton>
@@ -346,24 +346,24 @@ export function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="flex items-start gap-4 p-5 rounded-xl dark:bg-[#0A1628]/60 light:bg-white dark:border dark:border-[#1A3A5C]/30 light:border light:border-[#E2E8F0] dark:hover:border-[#00D4FF]/30 light:hover:border-[#0084FF]/30 transition-colors"
+                className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl dark:bg-[#0A1628]/60 light:bg-white dark:border dark:border-[#1A3A5C]/30 light:border light:border-[#E2E8F0] dark:hover:border-[#00D4FF]/30 light:hover:border-[#0084FF]/30 transition-colors"
               >
-                <div className="w-12 h-12 rounded-lg dark:bg-[#00D4FF]/10 light:bg-[#0084FF]/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-6 h-6 dark:text-[#00D4FF] light:text-[#0084FF]" />
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-lg dark:bg-[#00D4FF]/10 light:bg-[#0084FF]/10 flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-5 sm:w-6 h-5 sm:h-6 dark:text-[#00D4FF] light:text-[#0084FF]" />
                 </div>
-                <div>
-                  <div className="text-sm dark:text-[#7BC8FF] light:text-[#475569] mb-1">{item.label}</div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-xs sm:text-sm dark:text-[#7BC8FF] light:text-[#475569] mb-1">{item.label}</div>
                   {item.href ? (
                     <a
                       href={item.href}
                       target={item.href.startsWith('http') ? '_blank' : undefined}
                       rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="dark:text-white light:text-[#0F172A] dark:hover:text-[#00D4FF] light:hover:text-[#0084FF] transition-colors"
+                      className="text-xs sm:text-sm dark:text-white light:text-[#0F172A] dark:hover:text-[#00D4FF] light:hover:text-[#0084FF] transition-colors break-all"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <span className="dark:text-white light:text-[#0F172A]">{item.value}</span>
+                    <span className="text-xs sm:text-sm dark:text-white light:text-[#0F172A]">{item.value}</span>
                   )}
                 </div>
               </motion.div>

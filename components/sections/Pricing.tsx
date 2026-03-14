@@ -3,6 +3,7 @@
 /**
  * Pricing - Three-tier pricing cards with glass morphism design
  * Professional tier highlighted as most popular
+ * Fully responsive across mobile, tablet, and desktop
  */
 
 import { motion } from 'framer-motion'
@@ -79,7 +80,7 @@ export function Pricing() {
   }
 
   return (
-    <section id="pricing" className="relative py-16 md:py-24 dark:bg-[#020B18] light:bg-[#F8FAFC]">
+    <section id="pricing" className="relative py-12 sm:py-16 md:py-24 dark:bg-[#020B18] light:bg-[#F8FAFC]">
       {/* Background */}
       <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-[#020B18] dark:via-[#0A1628]/50 dark:to-[#020B18] light:bg-gradient-to-b light:from-[#F8FAFC] light:via-white light:to-[#F8FAFC]" />
       
@@ -89,7 +90,7 @@ export function Pricing() {
           subtitle="Choose the perfect plan for your business."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -98,17 +99,18 @@ export function Pricing() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               whileHover={{ y: -5 }}
-              className={`relative rounded-2xl p-6 md:p-8 transition-all duration-300 ${
+              className={`relative rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-300 flex flex-col h-full ${
                 tier.popular
-                  ? 'dark:bg-[#0A1628] light:bg-white dark:border-2 light:border-2 dark:border-[#00D4FF]/50 light:border-[#0084FF]/50 dark:shadow-[0_0_30px_rgba(0,212,255,0.2)] light:shadow-[0_0_30px_rgba(0,132,255,0.2)]'
+                  ? 'dark:bg-[#0A1628] light:bg-white dark:border-2 light:border-2 dark:border-[#00D4FF]/50 light:border-[#0084FF]/50 dark:shadow-[0_0_30px_rgba(0,212,255,0.2)] light:shadow-[0_0_30px_rgba(0,132,255,0.2)] sm:scale-100 scale-100'
                   : 'dark:bg-[#0A1628]/80 light:bg-white dark:border dark:border-[#1A3A5C]/50 light:border light:border-[#E2E8F0] dark:hover:border-[#00D4FF]/30 light:hover:border-[#0084FF]/30'
               }`}
             >
               {/* Popular badge */}
               {tier.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-[#00D4FF] text-[#020B18] text-sm font-semibold">
-                    <Sparkles size={14} />
+                <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2">
+                  <div className="flex items-center gap-1 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-[#00D4FF] text-[#020B18] text-xs sm:text-sm font-semibold">
+                    <Sparkles size={12} className="sm:hidden" />
+                    <Sparkles size={14} className="hidden sm:block" />
                     Most Popular
                   </div>
                 </div>
@@ -116,7 +118,7 @@ export function Pricing() {
 
               {/* Tier name */}
               <h3 
-                className="text-xl font-bold text-white mb-2"
+                className="text-lg sm:text-xl font-bold text-white mb-2"
                 style={{ fontFamily: 'var(--font-space), Space Grotesk, sans-serif' }}
               >
                 {tier.name}
@@ -126,32 +128,33 @@ export function Pricing() {
               <div className="mb-4">
                 <div className="flex items-baseline gap-2">
                   <span 
-                    className={`text-4xl md:text-5xl font-bold ${
+                    className={`text-3xl sm:text-4xl md:text-5xl font-bold ${
                       tier.popular ? 'text-[#00D4FF] text-glow-cyan' : 'text-white'
                     }`}
                     style={{ fontFamily: 'var(--font-space), Space Grotesk, sans-serif' }}
                   >
                     {tier.price}
                   </span>
-                  <span className={`text-sm ${tier.popular ? 'text-[#00D4FF]/80' : 'text-[#7BC8FF]'}`}>
+                  <span className={`text-xs sm:text-sm ${tier.popular ? 'text-[#00D4FF]/80' : 'text-[#7BC8FF]'}`}>
                     {tier.period}
                   </span>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-[#B8D4E8] mb-6">
+              <p className="text-xs sm:text-sm text-[#B8D4E8] mb-6">
                 {tier.description}
               </p>
 
               {/* Features */}
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2 sm:space-y-3 mb-8 flex-grow">
                 {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <div className="mt-0.5 w-5 h-5 rounded-full bg-[#00D4FF]/20 flex items-center justify-center flex-shrink-0">
-                      <Check size={12} className="text-[#00D4FF]" />
+                  <li key={feature} className="flex items-start gap-2 sm:gap-3">
+                    <div className="mt-0.5 w-4 sm:w-5 h-4 sm:h-5 rounded-full bg-[#00D4FF]/20 flex items-center justify-center flex-shrink-0">
+                      <Check size={10} className="sm:hidden text-[#00D4FF]" />
+                      <Check size={12} className="hidden sm:block text-[#00D4FF]" />
                     </div>
-                    <span className="text-sm text-[#B8D4E8]">{feature}</span>
+                    <span className="text-xs sm:text-sm text-[#B8D4E8]">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -165,7 +168,7 @@ export function Pricing() {
                 Get Started
               </GlowButton>
 
-              {/* Note for Starter */}
+              {/* Note */}
               {tier.note && (
                 <p className="mt-4 text-xs text-center text-[#7BC8FF] italic">
                   {tier.note}
